@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For M ❤️</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        overflow: hidden;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+            radial-gradient(circle at top, #54234f 0%, #27152f 40%, #100b18 100%);
+        color: white;
+    }
+
+    /* BACKGROUND STARS */
+    .star {
+        position: fixed;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+        from { opacity: 0.2; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1.4); }
+    }
+
+    /* PAGES */
+    .page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(25px);
+    }
+
+    .card {
+        width: 100%;
+        max-width: 470px;
+        padding: 38px 27px;
+        text-align: center;
+
+        background: rgba(255,255,255,.10);
+        border: 1px solid rgba(255,255,255,.17);
+        border-radius: 28px;
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        box-shadow:
+            0 20px 60px rgba(0,0,0,.4),
+            inset 0 1px rgba(255,255,255,.2);
+    }
+
+    h1 {
+        font-size: 38px;
+        margin-bottom: 18px;
+    }
+
+    h2 {
+        font-size: 27px;
+        margin-bottom: 18px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .small {
+        opacity: .7;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 14px 27px;
+
+        border: 0;
+        border-radius: 50px;
+
+        font-size: 16px;
+        font-weight: 600;
+
+        background: white;
+        color: #a02f65;
+
+        cursor: pointer;
+        transition: .25s;
+        box-shadow: 0 8px 25px rgba(0,0,0,.25);
+    }
+
+    button:hover {
+        transform: translateY(-3px) scale(1.04);
+    }
+
+    /* ENVELOPE */
+
+    .envelope {
+        font-size: 75px;
+        margin: 20px;
+        animation: envelopeFloat 2s ease-in-out infinite;
+    }
+
+    @keyframes envelopeFloat {
+        0%,100% { transform: translateY(0) rotate(-3deg); }
+        50% { transform: translateY(-10px) rotate(3deg); }
+    }
+
+    /* TYPEWRITER */
+
+    #typed {
+        min-height: 170px;
+        text-align: left;
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 2px;
+        height: 20px;
+        background: white;
+        animation: blink .7s infinite;
+    }
+
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+
+    /* CRINGE METER */
+
+    .meter {
+        width: 100%;
+        height: 18px;
+        background: rgba(255,255,255,.15);
+        border-radius: 30px;
+        overflow: hidden;
+        margin-top: 25px;
+    }
+
+    .meter-fill {
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg,#ff80ab,#ff4081,#ff1744);
+        border-radius: 30px;
+        transition: width 2.5s ease;
+    }
+
+    #meterText {
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    /* HEARTS */
+
+    .heart {
+        position: fixed;
+        bottom: -50px;
+        pointer-events: none;
+        z-index: 20;
+        animation: heartFloat linear forwards;
+    }
+
+    @keyframes heartFloat {
+        0% {
+            transform: translateY(0) rotate(0);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-115vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* FINAL HEART */
+
+    .bigHeart {
+        font-size: 70px;
+        animation: heartbeat 1.2s infinite;
+        margin-bottom: 15px;
+    }
+
+    @keyframes heartbeat {
+        0%,100% { transform: scale(1); }
+        25% { transform: scale(1.15); }
+        40% { transform: scale(1); }
+        60% { transform: scale(1.15); }
+    }
+
+    .signature {
+        margin-top: 25px;
+        font-size: 20px;
+        font-style: italic;
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+
+<section id="page1" class="page">
+
+    <div class="card">
+
+        <div class="envelope">💌</div>
+
+        <h1>Hey M ❤️</h1>
+
+        <p>
+            You have a tiny message waiting for you.
+        </p>
+
+        <p class="small">
+            Warning: you may consider this cringe.
+        </p>
+
+        <button onclick="openLetter()">
+            Open it
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section id="page2" class="page hidden">
+
+    <div class="card">
+
+        <h2>Just wanted to tell you something...</h2>
+
+        <div id="typed"></div>
+
+        <button id="continueButton"
+                style="display:none"
+                onclick="showCringe()">
+
+            I already know what you're going to say 😭
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section id="page3" class="page hidden">
+
+    <div class="card">
+
+        <h2>Analyzing M's reaction...</h2>
+
+        <p>Calculating cringe level 🤨</p>
+
+        <div class="meter">
+            <div id="meterFill" class="meter-fill"></div>
+        </div>
+
+        <p id="meterText">0% cringe</p>
+
+        <button id="finalButton"
+                style="display:none"
+                onclick="finalPage()">
+
+            Okay okay... one last thing
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 4 -->
+
+<section id="page4" class="page hidden">
+
+    <div class="card">
+
+        <div class="bigHeart">❤️</div>
+
+        <h1>M</h1>
+
+        <p>
+            I know you're busy today,
+            so I'm not going to bother you for long.
+            <br><br>
+
+            I just wanted you to know that
+            <strong>you always make me smile.</strong>
+            <br><br>
+
+            And yes...
+            I already know you're going to say
+            <strong>"this is cringe"</strong> 😭
+            <br><br>
+
+            But I don't care.
+            <br><br>
+
+            I'm just really happy I met you. ❤️
+        </p>
+
+        <div class="signature">
+            — S
+        </div>
+
+        <button onclick="surprise()">
+            ❤️
+        </button>
+
+        <p id="surpriseText"
+           style="display:none; margin-top:20px;">
+
+            Now go be busy 😂❤️
+            <br>
+            I'll see you later.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* CREATE STARS */
+
+for (let i = 0; i < 70; i++) {
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+
+    star.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    document.body.appendChild(star);
+}
+
+
+/* CHANGE PAGE */
+
+function changePage(current, next) {
+
+    document.getElementById(current)
+        .classList.add("hidden");
+
+    setTimeout(() => {
+
+        document.getElementById(next)
+            .classList.remove("hidden");
+
+    }, 500);
+}
+
+
+/* OPEN LETTER */
+
+function openLetter() {
+
+    changePage("page1", "page2");
+
+    setTimeout(typeMessage, 900);
+}
+
+
+/* TYPEWRITER MESSAGE */
+
+const message =
+`I know you're busy today.
+
+I just wanted to let you know that you always make me smile.
+
+Even when we're doing absolutely nothing, I still somehow enjoy every second with you.
+
+And before you say it...
+
+Yes.
+
+I know this is cringe 😭❤️`;
+
+
+let charIndex = 0;
+
+
+function typeMessage() {
+
+    const typed = document.getElementById("typed");
+
+    if (charIndex < message.length) {
+
+        const character = message.charAt(charIndex);
+
+        if (character === "\n") {
+            typed.innerHTML += "<br>";
+        } else {
+            typed.innerHTML += character;
+        }
+
+        charIndex++;
+
+        setTimeout(typeMessage, 38);
+
+    } else {
+
+        document.getElementById("continueButton")
+            .style.display = "inline-block";
+    }
+}
+
+
+/* CRINGE METER */
+
+function showCringe() {
+
+    changePage("page2", "page3");
+
+    setTimeout(() => {
+
+        document.getElementById("meterFill")
+            .style.width = "100%";
+
+        let number = 0;
+
+        const counter = setInterval(() => {
+
+            number++;
+
+            document.getElementById("meterText")
+                .innerText = number + "% cringe";
+
+            if (number >= 100) {
+
+                clearInterval(counter);
+
+                document.getElementById("meterText")
+                    .innerText =
+                    "100% cringe — exactly as expected 💀";
+
+                document.getElementById("finalButton")
+                    .style.display = "inline-block";
+            }
+
+        }, 22);
+
+    }, 700);
+}
+
+
+/* FINAL PAGE */
+
+function finalPage() {
+
+    changePage("page3", "page4");
+
+    setTimeout(createHearts, 600);
+}
+
+
+/* HEART ANIMATION */
+
+function createHearts() {
+
+    const heartSymbols =
+        ["❤️","💕","💗","💖","🩷"];
+
+    for (let i = 0; i < 35; i++) {
+
+        setTimeout(() => {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.innerText =
+                heartSymbols[
+                    Math.floor(
+                        Math.random() *
+                        heartSymbols.length
+                    )
+                ];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (18 + Math.random() * 28) + "px";
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6500);
+
+        }, i * 80);
+    }
+}
+
+
+/* LAST SURPRISE */
+
+function surprise() {
+
+    document.getElementById("surpriseText")
+        .style.display = "block";
+
+    createHearts();
+
+    setTimeout(createHearts, 900);
+}
+
+</script>
+
+</body>
+</html>
